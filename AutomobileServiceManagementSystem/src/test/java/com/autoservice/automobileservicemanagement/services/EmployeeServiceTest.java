@@ -34,7 +34,7 @@ public class EmployeeServiceTest {
         when(employeeRepository.findUserByUsername("andrei.ion")).thenReturn(EmployeeEntitiesMocks.getEmployeesMock().get(1));
 
         EmployeeDto result = employeeService.getEmployeeByUsername("andrei.ion");
-        assertEquals("andrei.ion345", result.getUsername());
+        assertEquals("andrei.ion", result.getUsername());
     }
 
     @Test

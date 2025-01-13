@@ -33,9 +33,7 @@ public class ClientController {
 
     @Operation(summary = "Add a new client", description = "Add a new client to the system")
     @PostMapping
-    public ResponseEntity<ClientDto> addClient(@Valid ClientDto clientDto) {
+    public ResponseEntity<ClientDto> addClient(@RequestBody @Valid ClientDto clientDto) {
         return ResponseEntity.ok(clientService.addClient(clientDto));
     }
-
-
 }

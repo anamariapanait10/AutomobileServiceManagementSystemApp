@@ -33,13 +33,13 @@ public class EmployeeController {
 
     @Operation(summary = "Add a new employee", description = "Add a new employee to the system")
     @PostMapping
-    public ResponseEntity<EmployeeDto> addEmployee(@Valid @RequestBody EmployeeDto employeeDto) {
+    public ResponseEntity<EmployeeDto> addEmployee(@RequestBody @Valid EmployeeDto employeeDto) {
         return ResponseEntity.ok(employeeService.addUser(employeeDto));
     }
 
     @Operation(summary = "Get employees by type", description = "Retrieve employees filtered by username and type")
     @GetMapping("/type")
-    public ResponseEntity<List<EmployeeDto>> getByType(@RequestParam("username") String username, @RequestParam("type") String type){
+    public ResponseEntity<List<EmployeeDto>> getByType(@RequestParam("username") String username, @RequestParam("type") String type) {
         return ResponseEntity.ok(employeeService.getUserByUsernameAndType(username, type));
     }
 }

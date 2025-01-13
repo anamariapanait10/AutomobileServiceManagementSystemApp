@@ -32,5 +32,4 @@ public class ClientService {
     public ClientDto addClient(ClientDto clientDto) {
         return ClientMapper.mapClientToDto(clientRepository.save(ClientMapper.mapDtoToClient(clientDto)));
     }
-
 }
