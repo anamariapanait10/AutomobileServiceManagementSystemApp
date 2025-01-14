@@ -4,7 +4,7 @@ import com.autoservice.automobileservicemanagement.dto.OrderDto;
 import com.autoservice.automobileservicemanagement.services.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/orders")
+@RequiredArgsConstructor
 @Tag(name = "Order Management", description = "APIs for managing orders")
 public class OrderController {
 
-    @Autowired
-    private OrderService orderService;
+    private final OrderService orderService;
 
     @Operation(summary = "Get an order by ID", description = "Retrieve order details by its ID")
     @GetMapping("/{id}")

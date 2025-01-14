@@ -6,7 +6,7 @@ import com.autoservice.automobileservicemanagement.services.CarModelService;
 import com.autoservice.automobileservicemanagement.services.CarPartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +15,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/carModels")
 @Tag(name = "Car Model Management", description = "APIs for managing car models")
+@RequiredArgsConstructor
 public class CarModelController {
 
-    @Autowired
-    private CarModelService carModelService;
-
-    @Autowired
-    private CarPartService carPartService;
+    private final CarModelService carModelService;
+    private final CarPartService carPartService;
 
     @Operation(summary = "Get a car model by ID", description = "Retrieve a car model's details using its ID")
     @GetMapping("/{id}")

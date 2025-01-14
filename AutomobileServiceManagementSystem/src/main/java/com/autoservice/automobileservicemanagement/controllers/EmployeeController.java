@@ -5,6 +5,7 @@ import com.autoservice.automobileservicemanagement.services.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +14,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employees")
+@RequiredArgsConstructor
 @Tag(name = "Employee Management", description = "Manage employees and their details")
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     @Operation(summary = "Get all employees", description = "Retrieve a list of all employees")
     @GetMapping

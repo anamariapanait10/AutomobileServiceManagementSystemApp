@@ -5,7 +5,7 @@ import com.autoservice.automobileservicemanagement.services.ClientService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +13,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/clients")
+@RequiredArgsConstructor
 @Tag(name = "Client Management", description = "Manage clients and their details")
 public class ClientController {
 
-    @Autowired
-    private ClientService clientService;
+    private final ClientService clientService;
 
     @Operation(summary = "Get all clients", description = "Retrieve a list of all registered clients")
     @GetMapping
